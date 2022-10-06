@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>CSS Frameworks CA | Profile page</title>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary rounded-bottom" aria-label="Third navbar example">
+        <div class="container">
+          <a class="navbar-brand mt-1 me-5" href="/index.html"><img src="/icons/icons8-moon-symbol-96.png" alt="logo" style="width: 40px" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-sm-0 d-flex flex-grow-1 gap-5">
+              <li class="nav-item d-flex justify-content-center align-items-center">
+                <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center align-items-center">
+                <a class="nav-link active" href="/pages/profile/profile.html">Profile</a>
+              </li>
+              <li class="nav-item dropdown m-auto m-sm-0 ms-sm-auto pe-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><img src="/icons/icons8-user-96.png" alt="profile dropdown" class="login-icon" style="height: 30px" /></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/pages/profile/profile.html">Profile</a></li>
+                  <li><a class="dropdown-item" href="/pages/login/login.html">Log In</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="align-search-profile-icon">
+              <form role="search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!---------------BIO---------------->
+      <div class="container">
+        <div class="row mt-5 justify-content-sm-between">
+          <div class="col-sm-4 col-md-2 d-flex align-items-end align-items-sm-start align-content-sm-start gap-4 gap-sm-5 flex-wrap">
+            <div class="row flex-sm-column">
+              <div class="col mb-4 mt-5">
+                <img src="/images/odayaka-gurei-1X5IcEXjbmM-unsplash.jpg" alt="" class="img-fluid border border-secondary border-5 rounded-circle card-profile-pic-profile" style="--bs-border-opacity: 0.4" />
+              </div>
+              <div class="col text-start align-self-end">
+                <h3 class="text-primary fs-4 fw-bold mb-3">Matilda</h3>
+                <p class="text-primary fw-light mb-0">Single</p>
+                <p class="text-primary fw-light mb-0">Supahstar</p>
+                <p class="text-primary fw-light mb-0">Manchester</p>
+              </div>
+            </div>
+          </div>
+          <!-------------- WRITE NEW POST & FRIENDS----------------->
+          <div class="col-sm-8 col-md-5">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <div class="form-group mt-5">
+                  <textarea class="form-control social-media-post bg-secondary text-primary" style="--bs-bg-opacity: 0.4" id="message" rows="3" placeholder="Hey, what's up?"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="btn-toolbar post-btn mt-1 mb-5 justify-content-end">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary pe-4 ps-4">POST</button>
+              </div>
+            </div>
+            <div class="friend-container pt-md-5">
+              <div class="text-end mb-4">
+                <h2 class="text-primary fw-bold">FRIENDS</h2>
+              </div>
+              <div class="friend-section mb-4 d-flex justify-content-around flex-wrap gap-2">
+                <div class="friend">
+                  <a href=""><img src="/images/viktor-zhulin-FM97Fst2InM-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+                <div class="friend">
+                  <a href=""><img src="/images/skyler-anderson-auECyuNUwMs-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+                <div class="friend">
+                  <a href=""><img src="/images/caique-nascimento-8832p6MX7vs-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+                <div class="friend">
+                  <a href=""><img src="/images/viktor-zhulin-FM97Fst2InM-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+                <div class="friend">
+                  <a href=""><img src="/images/skyler-anderson-auECyuNUwMs-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+                <div class="friend">
+                  <a href=""><img src="/images/caique-nascimento-8832p6MX7vs-unsplash.jpg" alt="" width="100px" class="rounded-5" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--------------FEED---------------->
+          <div class="col-md-5">
+            <div class="feed-container mt-5 ms-2 me-2">
+              <h1 class="h1-homepage text-primary text-start fw-bold">FEED</h1>
+              <div class="card gedf-card gap-3 border-0">
+                <div class="row bg-primary rounded-1 gap-3 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.1">
+                  <div class="col-2 border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex feed-profile-pic">
+                        <div class="mr-2">
+                          <img class="rounded-circle" width="50" src="/images/viktor-zhulin-FM97Fst2InM-unsplash.jpg" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body mb-3 col-9 p-0">
+                    <div class="ml-2 mb-1 d-flex flex-md-column gap-3 gap-md-0">
+                      <div class="h7 text-primary fs-6">@Charlie</div>
+                      <p class="text-primary d-md-none">|</p>
+                      <div class="h7 text-primary mb-md-3">20.08.22 2.45pm</div>
+                    </div>
+                    <p class="card-text pe-3">Oh you know, today I’m just chilling trying to do what I can to make this design really good.</p>
+                  </div>
+                </div>
+                <div class="row bg-primary rounded-1 gap-3 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.1">
+                  <div class="col-2 border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex feed-profile-pic">
+                        <div class="mr-2">
+                          <img class="rounded-circle" width="50" src="/images/viktor-zhulin-FM97Fst2InM-unsplash.jpg" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body mb-3 col-9 p-0">
+                    <div class="ml-2 mb-1 d-flex flex-md-column gap-3 gap-md-0">
+                      <div class="h7 text-primary fs-6">@Charlie</div>
+                      <p class="text-primary d-md-none">|</p>
+                      <div class="h7 text-primary mb-md-3">20.08.22 2.45pm</div>
+                    </div>
+                    <p class="card-text pe-3">Oh you know, today I’m just chilling trying to do what I can to make this design really good.</p>
+                  </div>
+                </div>
+                <div class="row bg-primary rounded-1 gap-3 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.1">
+                  <div class="col-2 border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex feed-profile-pic">
+                        <div class="mr-2">
+                          <img class="rounded-circle" width="50" src="/images/viktor-zhulin-FM97Fst2InM-unsplash.jpg" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body mb-3 col-9 p-0">
+                    <div class="ml-2 mb-1 d-flex flex-md-column gap-3 gap-md-0">
+                      <div class="h7 text-primary fs-6">@Charlie</div>
+                      <p class="text-primary d-md-none">|</p>
+                      <div class="h7 text-primary mb-md-3">20.08.22 2.45pm</div>
+                    </div>
+                    <p class="card-text pe-3">Oh you know, today I’m just chilling trying to do what I can to make this design really good.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
