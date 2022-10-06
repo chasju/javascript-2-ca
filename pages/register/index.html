@@ -17,19 +17,19 @@
     </header>
     <div class="container row m-auto h-100 d-flex">
       <main class="col-10 col-sm-7 col-md-5 m-auto text-center d-flex align-items-center">
-        <form action="https://nf-api.onrender.com/api/v1/social/auth/register" class="flex-grow-1">
+        <form action="https://nf-api.onrender.com/api/v1/social/auth/register" class="flex-grow-1" id="registerForm">
           <h1 class="h3 mb-5 fw-normal text-primary text-uppercase fw-bold m-auto">Create new account</h1>
           <div class="bg-primary p-4 pt-5 rounded-4" style="--bs-bg-opacity: 0.2">
             <div class="form-floating mb-4 mt-4 border border-primary rounded">
-              <input type="text" name="name" class="form-control bg-white" id="floatingInput" placeholder="name_lastName" required />
+              <input type="text" name="name" class="form-control bg-white" id="floatingInput" placeholder="name_lastName" required pattern="^[\w]+$" title="Use lowercase and uppercase letters, numbers and underscore. Example: my_User" />
               <label for="floatingInput" class="text-primary">Username</label>
             </div>
             <div class="form-floating mb-4 border border-primary rounded">
-              <input type="email" class="form-control bg-white" id="floatingEmailInput" placeholder="name@noroff.no" required />
+              <input type="email" name="email" class="form-control bg-white" id="floatingEmailInput" placeholder="name@noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only @noroff.no and @stud.noroff.no domains are allowed to register a user." />
               <label for="floatingInput" class="text-primary">Email</label>
             </div>
             <div class="form-floating mb-4 border border-primary rounded">
-              <input type="password" class="form-control bg-white" id="floatingPassword" placeholder="Password" required />
+              <input type="password" name="password" class="form-control bg-white" id="floatingPassword" placeholder="Password" required minlength="8" />
               <label for="floatingPassword" class="text-primary">Password</label>
             </div>
             <div class="new-user mb-3 mt-5 text-end">
