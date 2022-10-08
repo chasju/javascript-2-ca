@@ -12,7 +12,6 @@ export function setLoginFormListener() {
 
       login(profile);
       form.reset();
-      window.location = "/pages/profile/";
     });
   }
 }
