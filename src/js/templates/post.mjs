@@ -1,3 +1,7 @@
+import { removePost } from "../api/posts/delete.mjs";
+import { getHomeFeedPosts } from "../handlers/getPosts.mjs";
+import { getProfileFeedPosts } from "../handlers/getPosts.mjs";
+
 export function postTemplate(postData) {
   const post = document.createElement("div");
   post.classList.add("post");
@@ -31,7 +35,7 @@ export function postTemplate(postData) {
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex feed-profile-pic" style="width:50px;height:50px;">
                     <div class="mr-2">
-                      <img class="rounded-circle" width="50" src="${avatar}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;"/>
+                      <a href="/pages/profile/"><img class="rounded-circle" width="50" src="${avatar}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;"/></a>
                     </div>
                   </div>
                 </div>
@@ -44,8 +48,8 @@ export function postTemplate(postData) {
                 </div>
                 <p class="card-text">${postBody}</p>
                 <div class="d-flex gap-3">
-                  <a href="/pages/edit/index.html?id=${postId}" class="h7 text-primary edit-post">Edit</a>
-                  <div  class="h7s text-primary delete-post">Delete Post</div>
+                  <a href="/pages/edit/?id=${postId}" class="h7 text-primary edit-post">Edit</a>
+                  <div id="${postId}" class="h7s text-primary delete-post">Delete Post</div>
                 </div>
               </div>
             </div>`;
@@ -53,6 +57,21 @@ export function postTemplate(postData) {
 
   return post;
 }
+
 export function renderPostTemplate(postData, parent) {
   parent.append(postTemplate(postData));
+
+  // Set delete function after API result is loaded
+  const deleteButton = document.querySelectorAll(".delete-post");
+
+  deleteButton.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      removePost(e.target.id);
+      if (location.pathname === "/pages/profile/") {
+        getProfileFeedPosts();
+      } else {
+        getHomeFeedPosts();
+      }
+    });
+  });
 }

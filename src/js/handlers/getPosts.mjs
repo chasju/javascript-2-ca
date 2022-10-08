@@ -9,6 +9,8 @@ export async function getHomeFeedPosts() {
 
     templates.renderPostTemplate(posts, container);
   } catch (error) {
+    const container = document.querySelector(".post-container");
+
     container.innerHTML = "There was an error loading the feed" + error;
     console.log(error);
   }
