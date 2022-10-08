@@ -11,6 +11,8 @@ if (path === "/pages/register/") {
   setLoginFormListener();
 } else if (path === "/pages/profile/") {
   getProfileFeedPosts();
+} else if (path === "/pages/edit/") {
+  console.log("edit");
 } else {
-  getHomeFeedPosts();
+  //   getHomeFeedPosts();
 }

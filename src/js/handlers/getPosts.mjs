@@ -1,9 +1,9 @@
 import * as templates from "../templates/index.mjs";
-import * as postMethods from "../api/posts/index.mjs";
+import { getPosts } from "../api/posts/get.mjs";
 
 export async function getHomeFeedPosts() {
   try {
-    const posts = await postMethods.getPosts();
+    const posts = await getPosts();
     const container = document.querySelector(".post-container");
     container.innerHTML = "";
 
@@ -16,7 +16,7 @@ export async function getHomeFeedPosts() {
 
 export async function getProfileFeedPosts() {
   try {
-    const posts = await postMethods.getPosts();
+    const posts = await getPosts();
     const user = localStorage.getItem("isLoggedIn");
 
     const filteredPosts = posts.filter((post) => {

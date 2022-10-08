@@ -12,6 +12,7 @@ export function postTemplate(postData) {
     let avatar = postData[i].author.avatar;
     const date = postData[i].updated;
     const postBody = postData[i].body;
+    const postId = postData[i].id;
 
     // Setting placeholder for profiles without avatar
 
@@ -43,8 +44,8 @@ export function postTemplate(postData) {
                 </div>
                 <p class="card-text">${postBody}</p>
                 <div class="d-flex gap-3">
-                  <div class="h7 text-primary edit-post">Edit</div>
-                  <div class="h7s text-primary delete-post">Delete Post</div>
+                  <a href="/pages/edit/index.html?id=${postId}" class="h7 text-primary edit-post">Edit</a>
+                  <div  class="h7s text-primary delete-post">Delete Post</div>
                 </div>
               </div>
             </div>`;

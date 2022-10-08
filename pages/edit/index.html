@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>JavaScript 2 CA | Register New User</title>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script defer type="module" src="/src/js/index.mjs"></script>
+  </head>
+  <body class="vh-100">
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary rounded-bottom" aria-label="Third navbar example">
+        <div class="container">
+          <a class="navbar-brand mt-1 me-5" href="/index.html"><img src="/icons/icons8-moon-symbol-96.png" alt="logo" style="width: 40px" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-sm-0 d-flex flex-grow-1 gap-5">
+              <li class="nav-item d-flex justify-content-center align-items-center">
+                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center align-items-center">
+                <a class="nav-link" href="/pages/profile/">Profile</a>
+              </li>
+              <li class="nav-item dropdown m-auto m-sm-0 ms-sm-auto pe-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><img src="/icons/icons8-user-96.png" alt="profile dropdown" class="login-icon" style="height: 30px" /></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/pages/profile/">Profile</a></li>
+                  <li><a class="dropdown-item fw-bold text-decoration-underline" href="/pages/login/">Log In</a></li>
+                  <li><button class="dropdown-item">Log Out</button></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="align-search-profile-icon">
+              <form role="search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container row m-auto h-100 d-flex">
+      <main class="col-10 col-sm-7 col-md-5 m-auto text-center d-flex align-items-center">
+        <form id="editPost" class="flex-grow-1">
+          <h1 class="h3 mb-5 fw-normal text-primary text-uppercase fw-bold m-auto">Edit</h1>
+          <div class="bg-primary p-4 pt-4 rounded-4" style="--bs-bg-opacity: 0.2">
+            <div class="form-group">
+              <textarea required name="body" class="form-control social-media-post bg-secondary text-primary" style="--bs-bg-opacity: 0.4" id="message" rows="3" placeholder="Hey, what's up?"></textarea>
+            </div>
+            <div class="form-group mt-3">
+              <label for="" class="text-primary">Tags</label>
+              <input type="text" name="tags" class="form-control" />
+            </div>
+            <div class="form-group mt-3">
+              <label for="" class="text-primary">Image</label>
+              <input type="url" name="media" class="form-control" />
+            </div>
+          </div>
+          <button class="ps-5 pe-5 mt-5 btn btn-lg btn-primary text-uppercase" type="submit">Update</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
