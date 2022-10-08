@@ -15,11 +15,13 @@ export async function login(profile) {
     body: JSON.stringify(profile),
   });
 
-  // Destructuring the result from API
-  const { accessToken, ...user } = await response.json();
+  // Destructuring API result
+  const { accessToken, name } = await response.json();
 
   storage.save("accessToken", accessToken);
-  storage.save("profile", user);
+  storage.save("isLoggedIn", name);
+  storage.save("status", "loggedIn");
 
   alert("you are now logged in");
+  window.location = "/pages/profile/";
 }
