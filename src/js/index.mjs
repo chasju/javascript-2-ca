@@ -11,6 +11,26 @@ import { filterFeedAscending, filterFeedDescending } from "./handlers/filterFeed
 
 const path = location.pathname;
 
+const accessToken = localStorage.getItem("accessToken");
+
+if (!accessToken) {
+  if (path === "/pages/profile/") {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
+                    <div><a href="/pages/login/">Log In Here</a></div>`;
+  }
+  if (path === "/pages/edit/") {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
+                    <div><a href="/pages/login/">Log In Here</a></div>`;
+  }
+  if (path === "/") {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
+                    <div><a href="/pages/login/">Log In Here</a></div>`;
+  }
+}
+
 if (path === "/pages/register/") {
   setRegisterFormListener();
 } else if (path === "/pages/login/") {
