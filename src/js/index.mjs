@@ -1,5 +1,6 @@
 import { setRegisterFormListener } from "./handlers/register.mjs";
 import { setLoginFormListener } from "./handlers/login.mjs";
+import { signOut } from "./api/auth/logout.mjs";
 import { setUpdatePostListener } from "./handlers/updatePost.mjs";
 import { setCreatePostListener } from "./handlers/createPost.mjs";
 import { getHomeFeedPosts, getProfileFeedPosts } from "./handlers/getPosts.mjs";
@@ -18,6 +19,7 @@ if (path === "/pages/register/") {
   getProfileFeedPosts();
   searchProfileFeedPosts();
   setProfilePicture();
+  signOut();
 } else if (path === "/pages/edit/") {
   setUpdatePostListener();
 } else {
@@ -25,4 +27,5 @@ if (path === "/pages/register/") {
   setCreatePostListener();
   getHomeFeedPosts();
   searchHomeFeedPosts();
+  signOut();
 }
