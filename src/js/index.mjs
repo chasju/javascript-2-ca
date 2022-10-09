@@ -7,6 +7,7 @@ import { getHomeFeedPosts, getProfileFeedPosts } from "./handlers/getPosts.mjs";
 import { searchHomeFeedPosts } from "./handlers/searchPosts.mjs";
 import { searchProfileFeedPosts } from "./handlers/searchPosts.mjs";
 import { setProfilePicture } from "./handlers/setProfilePicture.mjs";
+import { filterFeedAscending, filterFeedDescending } from "./handlers/filterFeed.mjs";
 
 const path = location.pathname;
 
@@ -28,4 +29,6 @@ if (path === "/pages/register/") {
   getHomeFeedPosts();
   searchHomeFeedPosts();
   signOut();
+  filterFeedAscending();
+  filterFeedDescending();
 }
