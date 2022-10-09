@@ -1,5 +1,6 @@
 import { API_SOCIAL_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
+import { load } from "../../storage/index.mjs";
 
 const action = "/posts";
 
@@ -23,4 +24,16 @@ export async function getPost(id) {
 
   const post = await response.json();
   return post;
+}
+
+export async function getProfile() {
+  const name = load("isLoggedIn");
+
+  const getProfileURL = `${API_SOCIAL_URL}/profiles/${name}`;
+  console.log(getProfileURL);
+
+  const response = await authFetch(getProfileURL);
+
+  const profile = await response.json();
+  return profile;
 }
