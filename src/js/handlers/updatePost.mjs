@@ -1,6 +1,12 @@
 import { updatePost } from "../api/posts/put.mjs";
 import { getPost } from "../api/posts/get.mjs";
 
+/**
+ * Function will GET post based on id.
+ *
+ * @returns takes in the id and input information and updates post.
+ */
+
 export async function setUpdatePostListener() {
   const form = document.querySelector("#editPost");
 

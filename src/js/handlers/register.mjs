@@ -1,5 +1,10 @@
 import { register } from "../api/auth/register.mjs";
 
+/**
+ * Function that will register user.
+ *
+ */
+
 export function setRegisterFormListener() {
   const form = document.querySelector("#registerForm");
 

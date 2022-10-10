@@ -1,5 +1,10 @@
 import { login } from "../api/auth/login.mjs";
 
+/**
+ * Function that will log in user and reset form when logged in.
+ *
+ */
+
 export function setLoginFormListener() {
   const form = document.querySelector("#loginForm");
 

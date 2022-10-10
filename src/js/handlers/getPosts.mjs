@@ -1,6 +1,13 @@
 import * as templates from "../templates/index.mjs";
 import { getPosts } from "../api/posts/get.mjs";
 
+/**
+ * Function that will GET all post for Homepage.
+ *
+ * @returns returns all posts.
+ *
+ */
+
 export async function getHomeFeedPosts() {
   try {
     const posts = await getPosts();
@@ -15,6 +22,13 @@ export async function getHomeFeedPosts() {
     console.log(error);
   }
 }
+
+/**
+ * Function that will GET all post for Profile page.
+ *
+ * @returns Filters through all the posts and returns posts from logged in user.
+ *
+ */
 
 export async function getProfileFeedPosts() {
   try {

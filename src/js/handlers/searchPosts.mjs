@@ -1,7 +1,22 @@
 import { getPosts } from "../api/posts/get.mjs";
 import * as templates from "../templates/index.mjs";
 
-// Search Home Page Posts
+/**
+ * Function that will search through Home feed posts.
+ *
+ * @returns const filterPosts will return posts that include input value.
+ * If there are no posts matching
+ * filterPosts will return all posts.
+ * @example
+ * ```js
+ * if (post.includes(input.value)) {
+ * return post;
+ * }
+ * if (input = "")) {
+ * return posts;
+ * }
+ * ```
+ */
 
 export async function searchHomeFeedPosts() {
   try {
@@ -34,7 +49,23 @@ export async function searchHomeFeedPosts() {
   }
 }
 
-// Search Profile Page Posts
+/**
+ * Function that will search through profile feed posts.
+ *
+ * @returns const filteredPosts return all posts for logged in user.
+ * const filterPosts will return posts
+ * that include input value. If there are no posts matching
+ * filterPosts will return all posts.
+ * @example
+ * ```js
+ * if (post.includes(input.value)) {
+ * return post;
+ * }
+ * if (input = "")) {
+ * return posts;
+ * }
+ * ```
+ */
 
 export async function searchProfileFeedPosts() {
   const container = document.querySelector(".profile-container");

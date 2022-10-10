@@ -2,6 +2,13 @@ import { createPost } from "../api/posts/create.mjs";
 import { getHomeFeedPosts } from "../handlers/getPosts.mjs";
 import { getProfileFeedPosts } from "../handlers/getPosts.mjs";
 
+/**
+ * Function with create post listener.
+ *
+ * @returns Listens for a button and creates post.
+ *
+ */
+
 export function setCreatePostListener() {
   const button = document.querySelector(".submit-post");
   const input = document.querySelector("textarea");
@@ -17,9 +24,9 @@ export function setCreatePostListener() {
     input.value = "";
 
     if (location.pathname === "/pages/profile/") {
-      getProfileFeedPosts();
+      setTimeout(getProfileFeedPosts, 300);
     } else {
-      getHomeFeedPosts();
+      setTimeout(getHomeFeedPosts, 300);
     }
   });
 }

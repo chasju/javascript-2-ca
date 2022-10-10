@@ -2,6 +2,13 @@ import { authFetch } from "../api/authFetch.mjs";
 import { API_SOCIAL_URL } from "../api/constants.mjs";
 import { renderPostTemplate } from "../templates/post.mjs";
 
+/**
+ * Function with filter feed listener.
+ *
+ * @returns Listens for a button and display result in ascending order.
+ *
+ */
+
 export async function filterFeedAscending() {
   const container = document.querySelector(".post-container");
   const filterOldest = document.querySelector(".ascending");
@@ -15,6 +22,13 @@ export async function filterFeedAscending() {
     renderPostTemplate(post, container);
   });
 }
+
+/**
+ * Function with filter feed listener.
+ *
+ * @returns Listens for a button and display result in descending order.
+ *
+ */
 
 export async function filterFeedDescending() {
   const container = document.querySelector(".post-container");
