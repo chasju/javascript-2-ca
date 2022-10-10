@@ -8,6 +8,7 @@ import { searchHomeFeedPosts } from "./handlers/searchPosts.mjs";
 import { searchProfileFeedPosts } from "./handlers/searchPosts.mjs";
 import { setProfilePicture } from "./handlers/setProfilePicture.mjs";
 import { filterFeedAscending, filterFeedDescending } from "./handlers/filterFeed.mjs";
+import { getSinglePost } from "./handlers/getPost.mjs";
 
 const path = location.pathname;
 
@@ -20,6 +21,11 @@ if (!accessToken) {
                     <div><a href="/pages/login/">Log In Here</a></div>`;
   }
   if (path === "/pages/edit/") {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
+                    <div><a href="/pages/login/">Log In Here</a></div>`;
+  }
+  if (path === "/pages/post/") {
     const body = document.querySelector("main");
     body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
                     <div><a href="/pages/login/">Log In Here</a></div>`;
@@ -43,6 +49,8 @@ if (path === "/pages/register/") {
   signOut();
 } else if (path === "/pages/edit/") {
   setUpdatePostListener();
+} else if (path === "/pages/post/") {
+  getSinglePost();
 } else {
   setProfilePicture();
   setCreatePostListener();
