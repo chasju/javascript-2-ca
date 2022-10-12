@@ -25,7 +25,6 @@ export async function setUpdatePostListener() {
       const post = Object.fromEntries(formData.entries());
       post.id = id;
       post.title = "No title";
-      console.log(post.id);
 
       await updatePost(post);
       window.location = `/pages/post/?id=${post.id}`;
