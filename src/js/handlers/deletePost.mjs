@@ -12,12 +12,12 @@ export function deletePost() {
   const deleteButton = document.querySelectorAll(".delete-post");
 
   deleteButton.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", async (e) => {
       removePost(e.target.id);
       if (location.pathname === "/pages/profile/") {
-        setTimeout(getProfileFeedPosts, 300);
+        await getProfileFeedPosts();
       } else {
-        setTimeout(getHomeFeedPosts, 300);
+        await getHomeFeedPosts();
       }
     });
   });

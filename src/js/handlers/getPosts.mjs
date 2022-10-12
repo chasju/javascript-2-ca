@@ -1,5 +1,6 @@
 import * as templates from "../templates/index.mjs";
 import { getPosts } from "../api/posts/get.mjs";
+import { emptyFeedMessage, noPostsMessage } from "../templates/noPostsMessage.mjs";
 
 /**
  * Function that will GET all post for Homepage.
@@ -31,22 +32,23 @@ export async function getHomeFeedPosts() {
  */
 
 export async function getProfileFeedPosts() {
+  const container = document.querySelector(".profile-container");
+
   try {
     const posts = await getPosts();
-    const user = localStorage.getItem("isLoggedIn");
+    const userLoggedIn = localStorage.getItem("isLoggedIn");
 
     const filteredPosts = posts.filter((post) => {
-      if (JSON.stringify(post.author.name) === user) {
-        return post;
+      if (JSON.stringify(post.author.name) === userLoggedIn) {
+        return true;
       }
     });
 
-    const container = document.querySelector(".profile-container");
     container.innerHTML = "";
 
     templates.renderPostTemplate(filteredPosts, container);
   } catch (error) {
-    container.innerHTML = "There was an error loading your feed" + error;
+    noPostsMessage(container);
     console.log(error);
   }
 }

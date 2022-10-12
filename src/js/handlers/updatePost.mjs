@@ -1,5 +1,6 @@
 import { updatePost } from "../api/posts/put.mjs";
 import { getPost } from "../api/posts/get.mjs";
+import { getSinglePost } from "./getPost.mjs";
 
 /**
  * Function will GET post based on id.
@@ -17,16 +18,17 @@ export async function setUpdatePostListener() {
     const post = await getPost(id);
     form.body.value = post.body;
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
       const post = Object.fromEntries(formData.entries());
       post.id = id;
       post.title = "No title";
-      console.log(post);
+      console.log(post.id);
 
-      updatePost(post);
+      await updatePost(post);
+      window.location = `/pages/post/?id=${post.id}`;
     });
   }
 }

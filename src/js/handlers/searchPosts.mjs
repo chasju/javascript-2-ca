@@ -1,5 +1,6 @@
 import { getPosts } from "../api/posts/get.mjs";
 import * as templates from "../templates/index.mjs";
+import { noPostsMessage } from "../templates/noPostsMessage.mjs";
 
 /**
  * Function that will search through Home feed posts.
@@ -25,19 +26,19 @@ export async function searchHomeFeedPosts() {
     const searchForm = document.querySelector("#searchForm");
     const container = document.querySelector(".post-container");
 
+    // setting the listener on 'submit' instead of 'keyup' to prevent making too many calls to API.
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const filterPosts = posts.filter((post, i, posts) => {
+      const filterPosts = posts.filter((post) => {
         const handle = post.author.name.toLowerCase();
         const body = post.body.toLowerCase();
+        const searchValue = searchInput.value.toLowerCase();
 
-        if (handle.includes(searchInput.value.toLowerCase()) || body.includes(searchInput.value.toLowerCase())) {
-          return post;
-        }
-        if (searchInput === "") {
-          return posts;
+        if (handle.includes(searchValue) || body.includes(searchValue)) {
+          return true;
         }
       });
+
       container.innerHTML = "";
       templates.renderPostTemplate(filterPosts, container);
     });
@@ -84,15 +85,13 @@ export async function searchProfileFeedPosts() {
 
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const filterPosts = filteredPosts.filter((post, i, filteredPosts) => {
+      const filterPosts = filteredPosts.filter((post) => {
         const handle = post.author.name.toLowerCase();
         const body = post.body.toLowerCase();
+        const searchValue = searchInput.value.toLowerCase();
 
-        if (handle.includes(searchInput.value.toLowerCase()) || body.includes(searchInput.value.toLowerCase())) {
-          return post;
-        }
-        if (searchInput === "") {
-          return filteredPosts;
+        if (handle.includes(searchValue) || body.includes(searchValue)) {
+          return true;
         }
       });
 
@@ -100,7 +99,7 @@ export async function searchProfileFeedPosts() {
       templates.renderPostTemplate(filterPosts, container);
     });
   } catch (error) {
-    container.innerHTML = "There was an error loading the feed" + error;
+    noPostsMessage(container);
     console.log(error);
   }
 }

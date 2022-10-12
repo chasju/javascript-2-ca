@@ -9,11 +9,11 @@ import { getProfileFeedPosts } from "../handlers/getPosts.mjs";
  *
  */
 
-export function setCreatePostListener() {
+export async function setCreatePostListener() {
   const button = document.querySelector(".submit-post");
   const input = document.querySelector("textarea");
 
-  button.addEventListener("click", (e) => {
+  button.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const bodyText = {
@@ -24,9 +24,9 @@ export function setCreatePostListener() {
     input.value = "";
 
     if (location.pathname === "/pages/profile/") {
-      setTimeout(getProfileFeedPosts, 300);
+      await getProfileFeedPosts();
     } else {
-      setTimeout(getHomeFeedPosts, 300);
+      await getHomeFeedPosts();
     }
   });
 }
