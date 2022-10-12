@@ -1,1 +1,1 @@
-# javascript2-CA
+# javascript-2-CA

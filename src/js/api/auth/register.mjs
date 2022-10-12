@@ -36,7 +36,7 @@ export async function register(profile) {
   });
 
   const result = await response.json();
-  alert("Your account has been set up");
+
   window.location = "/pages/login/";
   return result;
 }

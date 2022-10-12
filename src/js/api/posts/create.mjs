@@ -32,7 +32,6 @@ export async function createPost(postData) {
     });
 
     const post = await response.json();
-    console.log(post);
     return post;
   } catch (error) {
     console.log(error);

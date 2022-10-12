@@ -42,6 +42,5 @@ export async function login(profile) {
   storage.save("isLoggedIn", name);
   storage.save("status", "loggedIn");
 
-  alert("you are now logged in");
   window.location = "/pages/profile/";
 }

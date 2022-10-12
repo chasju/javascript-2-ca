@@ -30,7 +30,7 @@ if (!accessToken) {
     body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
                     <div><a href="/pages/login/">Log In Here</a></div>`;
   }
-  if (path === "/") {
+  if (path === "/" || path === "/index.html") {
     const body = document.querySelector("main");
     body.innerHTML = `<div class="container mt-5 text-primary h3">You are not logged in.<div>
                     <div><a href="/pages/login/">Log In Here</a></div>`;
