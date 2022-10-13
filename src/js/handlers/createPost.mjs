@@ -20,7 +20,7 @@ export async function setCreatePostListener() {
       title: "No title",
       body: input.value,
     };
-    createPost(bodyText);
+    await createPost(bodyText);
     input.value = "";
 
     if (location.pathname === "/pages/profile/") {
