@@ -1,6 +1,7 @@
 import * as templates from "../templates/index.mjs";
 import { getPosts } from "../api/posts/get.mjs";
-import { emptyFeedMessage, noPostsMessage } from "../templates/noPostsMessage.mjs";
+import { noPostsMessage } from "../templates/noPostsMessage.mjs";
+import { renderProfilePostTemplate } from "../templates/postProfile.mjs";
 
 /**
  * Function that will GET all post for Homepage.
@@ -46,7 +47,7 @@ export async function getProfileFeedPosts() {
 
     container.innerHTML = "";
 
-    templates.renderPostTemplate(filteredPosts, container);
+    renderProfilePostTemplate(filteredPosts, container);
   } catch (error) {
     noPostsMessage(container);
     console.log(error);

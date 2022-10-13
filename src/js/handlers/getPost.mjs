@@ -1,6 +1,6 @@
 import { getPost } from "../api/posts/get.mjs";
 import { renderCommentsTemplate } from "../templates/comments.mjs";
-import { renderPostTemplate } from "../templates/post.mjs";
+import { renderProfilePostTemplate } from "../templates/postProfile.mjs";
 
 const url = new URL(location.href);
 const id = url.searchParams.get("id");
@@ -21,7 +21,7 @@ export async function getSinglePost() {
     post = [post];
 
     container.innerHTML = "";
-    renderPostTemplate(post, container);
+    renderProfilePostTemplate(post, container);
 
     commentsContainer.innerHTML = "";
     renderCommentsTemplate(post, commentsContainer);

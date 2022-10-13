@@ -21,6 +21,8 @@ export async function setProfilePicture() {
               <div class="col mb-4 mt-5 px-0 profile-picture placeholder-glow ratio ratio-1x1"><a href="/pages/profile/"><img src="${avatar}" alt="profile picture" class="img-fluid border border-secondary border-5 rounded-circle card-profile-pic-profile" style="--bs-border-opacity: 0.4;width:100%;height:100%;object-fit:cover;"></a></div>
               <div class="col text-start align-self-end">
                 <h3 class="text-primary fs-4 fw-bold mb-3">${name}</h3>
+                <div id="${name}" class="h6 text-primary follow border rounded text-center" role="button">Follow</div>
+
                 <p class="text-primary fw-light mb-0">Posts: ${_count.posts}</p>
                 <p class="text-primary fw-light mb-0">Followers: ${_count.followers}</p>
                 <p class="text-primary fw-light mb-0">Follows: ${_count.following}</p>
