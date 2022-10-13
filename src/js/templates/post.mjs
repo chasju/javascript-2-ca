@@ -19,7 +19,7 @@ export function postTemplate(postData) {
 
     // Destructuring API into variables
 
-    const { author, body, id } = postData[i];
+    const { author, body, _count, id } = postData[i];
     let updated = postData[i].updated;
     let avatar = postData[i].author.avatar;
 
@@ -95,7 +95,7 @@ export function postTemplate(postData) {
                 <p class="card-text">${body}</p>
                 <div class="d-flex gap-3">
                   <a href="/pages/edit/?id=${id}" class="h7 text-primary edit-post">Edit</a>
-                  <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post">Comment</a>
+                  <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post">Comments(${_count.comments})</a>
                   <div id="${id}" class="h7s text-primary delete-post" role="button">Delete Post</div>
                 </div>
               </div>

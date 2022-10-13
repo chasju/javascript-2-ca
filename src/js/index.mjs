@@ -9,6 +9,7 @@ import { searchProfileFeedPosts } from "./handlers/searchPosts.mjs";
 import { setProfilePicture } from "./handlers/setProfilePicture.mjs";
 import { filterFeedAscending, filterFeedDescending } from "./handlers/filterFeed.mjs";
 import { getSinglePost } from "./handlers/getPost.mjs";
+import { setCreateCommentListener } from "./handlers/createComment.mjs";
 
 const path = location.pathname;
 
@@ -50,6 +51,7 @@ if (path === "/pages/register/") {
 } else if (path === "/pages/edit/") {
   setUpdatePostListener();
 } else if (path === "/pages/post/") {
+  setCreateCommentListener();
   getSinglePost();
 } else {
   setProfilePicture();

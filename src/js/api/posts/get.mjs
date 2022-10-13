@@ -18,7 +18,7 @@ const action = "/posts";
  */
 
 export async function getPosts() {
-  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&sort=updated&sortOrder=desc&limit=300`;
+  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&_comments=true&sort=updated&sortOrder=desc&limit=300`;
 
   const response = await authFetch(getPostsURL);
 
@@ -46,7 +46,7 @@ export async function getPost(id) {
     throw new Error("Get requires post ID");
   }
 
-  const getPostURL = `${API_SOCIAL_URL}${action}/${id}?_author=true`;
+  const getPostURL = `${API_SOCIAL_URL}${action}/${id}?_author=true&_comments=true`;
 
   const response = await authFetch(getPostURL);
 
