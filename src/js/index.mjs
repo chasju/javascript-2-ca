@@ -10,6 +10,7 @@ import { setProfilePicture } from "./handlers/setProfilePicture.mjs";
 import { filterFeedAscending, filterFeedDescending } from "./handlers/filterFeed.mjs";
 import { getSinglePost } from "./handlers/getPost.mjs";
 import { setCreateCommentListener } from "./handlers/createComment.mjs";
+import { setFollowListener, setUnFollowListener } from "./handlers/followUnfollow.mjs";
 
 const path = location.pathname;
 
@@ -61,4 +62,6 @@ if (path === "/pages/register/") {
   signOut();
   filterFeedAscending();
   filterFeedDescending();
+  setFollowListener();
+  setUnFollowListener();
 }

@@ -39,3 +39,43 @@ export async function updatePost(postData) {
 
   return post;
 }
+
+/**
+ * Function that will send information to API on whether to follow a profile
+ *
+ * @param {object} postData
+ * @returns Updates logged in users follower count
+ */
+
+export async function follow(postData) {
+  const followURL = `${API_SOCIAL_URL}/profiles/${postData}/follow`;
+
+  const response = await authFetch(followURL, {
+    method: "PUT",
+    body: JSON.stringify(postData),
+  });
+
+  const post = await response.json();
+
+  return post;
+}
+
+/**
+ * Function that will send information to API on whether to unfollow a profile
+ *
+ * @param {object} postData
+ * @returns Updates logged in users follower count
+ */
+
+export async function unFollow(postData) {
+  const unFollowURL = `${API_SOCIAL_URL}/profiles/${postData}/unfollow`;
+
+  const response = await authFetch(unFollowURL, {
+    method: "PUT",
+    body: JSON.stringify(postData),
+  });
+
+  const post = await response.json();
+
+  return post;
+}

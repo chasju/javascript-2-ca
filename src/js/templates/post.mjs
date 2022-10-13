@@ -78,10 +78,12 @@ export function postTemplate(postData) {
 
     post.innerHTML += `<div class="row bg-primary rounded-1 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.1">
               <div class="col-1 border-0 w-25 bg-unset">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-center align-items-center">
                   <div class="d-flex feed-profile-pic ratio ratio-1x1" style="width:60px;">
-                    <div class="mr-2">
-                      <a href="#"><img class="rounded-circle" src="${avatar}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;"/></a>
+                    <div class="mr-2 text-center">
+                      <a href="/pages/profile/?name=${author.name}"><img class="rounded-circle" src="${avatar}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;"/></a>
+                      <div id="${author.name}" class="h7 mt-2 text-primary follow" role="button">Follow</div>
+                      <div id="${author.name}" class="h7 mt-2 text-primary unFollow" style="width:fit-content" role="button">Unfollow</div>
                     </div>
                   </div>
                 </div>
@@ -96,7 +98,7 @@ export function postTemplate(postData) {
                 <div class="d-flex gap-3">
                   <a href="/pages/edit/?id=${id}" class="h7 text-primary edit-post">Edit</a>
                   <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post">Comments(${_count.comments})</a>
-                  <div id="${id}" class="h7s text-primary delete-post" role="button">Delete Post</div>
+                  <div id="${id}" class="h7 text-primary delete-post" role="button">Delete Post</div>
                 </div>
               </div>
             </div>`;
