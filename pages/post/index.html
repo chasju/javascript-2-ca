@@ -43,8 +43,8 @@
         </div>
       </nav>
     </header>
-    <div class="container row m-auto mt-5 d-flex">
-      <main class="col-10 col-sm-7 col-md-5 m-auto mt-5 d-flex align-items-center">
+    <div class="container row m-auto mt-5 d-flex flex-wrap flex-grow-1">
+      <main class="col-10 col-md-8 col-lg-6 m-auto mt-5 d-flex flex-column">
         <div class="parent flex-grow-1">
           <div class="row bg-primary rounded-1 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.1">
             <div class="col-1 border-0 w-25 bg-unset">
@@ -56,7 +56,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-body card-body-feed mb-3 col-7 p-0 placeholder-glow">
+            <div class="card-body card-body-feed mb-3 col-7 p-0placeholder-glow">
               <div class="ml-2 mb-1 d-flex gap-3 placeholder-glow">
                 <div class="h7 text-primary"></div>
                 <p class="text-primary placeholder col-4">|</p>
@@ -67,6 +67,33 @@
                 <a href="/pages/edit/?id=${postId}" class="h7 text-primary edit-post">Edit</a>
                 <a href="/pages/post/?id=${postId}" class="h7 text-primary edit-post">Comment</a>
                 <div id="${postId}" class="h7s text-primary delete-post">Delete Post</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form id="commentPost" class="flex-grow-1 d-flex flex-column">
+            <div class="rounded-4">
+              <div class="form-group">
+                <textarea required name="body" class="form-control social-media-post bg-secondary text-primary" style="--bs-bg-opacity: 0.4" id="message" rows="3" placeholder="Comment here"></textarea>
+              </div>
+            </div>
+            <button class="px-4 mt-2 btn btn-sm btn-primary" type="submit">Add comment</button>
+          </form>
+        </div>
+        <div class="comments flex-grow-1 mt-5">
+          <h1 class="h4 text-primary">Comments</h1>
+          <div class="comments-container">
+            <div class="row bg-primary rounded-1 pt-3 pb-3 mb-4" style="--bs-bg-opacity: 0.3">
+              <div class="card-body card-body-feed mb-3 col-7 p-0">
+                <div class="ml-2 mb-1 d-flex gap-3 placeholder-glow">
+                  <div class="h7 text-primary"></div>
+                  <p class="text-primary placeholder col-3">|</p>
+                  <div class="h7 text-primary"></div>
+                </div>
+                <div class="ms-3 placeholder-glow">
+                  <p class="card-text placeholder col-7"></p>
+                </div>
               </div>
             </div>
           </div>
