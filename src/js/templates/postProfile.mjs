@@ -95,8 +95,10 @@ export function postProfileTemplate(postData) {
                 <p class="card-text">${body}</p>
                 <div class="d-flex gap-3">
                   <a href="/pages/edit/?id=${id}" class="h7 text-primary edit-post">Edit</a>
-                  <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post">Comments(${_count.comments})</a>
-                  <div id="${id}" class="h7 text-primary delete-post" role="button">Delete Post</div>
+                  <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post"><i class="fa-solid fa-comments"></i> (${_count.comments})</a>
+                  <div  class="h7 text-primary delete-post" role="button"><i id="${id}" class="fa-solid fa-trash"></i></div>
+                  <div class="h7 text-primary react" role="button">&#127880 (${_count.reactions})</div>
+
                 </div>
               </div>
             </div>`;

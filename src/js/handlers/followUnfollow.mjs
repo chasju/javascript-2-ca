@@ -13,11 +13,6 @@ export async function setFollowListener() {
     if (await posts) {
       const followButton = document.querySelectorAll(".follow");
 
-      // Logging this to see if the button is rendered on page which it isn't all the time.
-      // Been trying to play with async and await and if statements to see how I can wait until I find this button
-      // but can't seem to figure it out. Would love a comment on how this is achieved.
-      console.log(followButton[0]);
-
       followButton.forEach((button) => {
         button.addEventListener("click", async (e) => {
           await follow(e.target.id);
@@ -42,10 +37,6 @@ export async function setUnFollowListener() {
     if (await posts) {
       const followButton = document.querySelectorAll(".unFollow");
 
-      // Logging this to see if the button is rendered on page which it isn't all the time.
-      // Been trying to play with async and await and if statements to see how I can wait until I find this button
-      // but can't seem to figure it out. Would love a comment on how this is achieved.
-      console.log(followButton[0]);
       followButton.forEach((button) => {
         button.addEventListener("click", async (e) => {
           await unFollow(e.target.id);

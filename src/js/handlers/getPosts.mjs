@@ -1,7 +1,5 @@
 import * as templates from "../templates/index.mjs";
-import { getPosts } from "../api/posts/get.mjs";
-import { noPostsMessage } from "../templates/noPostsMessage.mjs";
-import { renderProfilePostTemplate } from "../templates/postProfile.mjs";
+import * as posts from "../api/posts/index.mjs";
 
 /**
  * Function that will GET all post for Homepage.
@@ -12,11 +10,11 @@ import { renderProfilePostTemplate } from "../templates/postProfile.mjs";
 
 export async function getHomeFeedPosts() {
   try {
-    const posts = await getPosts();
+    const post = await posts.getPosts();
     const container = document.querySelector(".post-container");
     container.innerHTML = "";
 
-    templates.renderPostTemplate(posts, container);
+    templates.renderPostTemplate(post, container);
   } catch (error) {
     const container = document.querySelector(".post-container");
 
@@ -36,18 +34,18 @@ export async function getProfileFeedPosts() {
   const container = document.querySelector(".profile-container");
 
   try {
-    const posts = await getPosts();
+    const post = await posts.getPosts();
     const userLoggedIn = localStorage.getItem("isLoggedIn");
 
-    const filteredPosts = posts.filter((post) => {
-      if (JSON.stringify(post.author.name) === userLoggedIn) {
+    const filteredPosts = post.filter((profilePost) => {
+      if (JSON.stringify(profilePost.author.name) === userLoggedIn) {
         return true;
       }
     });
 
     container.innerHTML = "";
 
-    renderProfilePostTemplate(filteredPosts, container);
+    templates.renderProfilePostTemplate(filteredPosts, container);
   } catch (error) {
     noPostsMessage(container);
     console.log(error);

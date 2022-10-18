@@ -1,6 +1,5 @@
-import { getPost } from "../api/posts/get.mjs";
-import { renderCommentsTemplate } from "../templates/comments.mjs";
-import { renderProfilePostTemplate } from "../templates/postProfile.mjs";
+import * as posts from "../api/posts/get.mjs";
+import * as templates from "../templates/index.mjs";
 
 const url = new URL(location.href);
 const id = url.searchParams.get("id");
@@ -17,14 +16,15 @@ export async function getSinglePost() {
   const commentsContainer = document.querySelector(".comments-container");
 
   try {
-    let post = await getPost(id);
+    let post = await posts.getPost(id);
+
     post = [post];
 
     container.innerHTML = "";
-    renderProfilePostTemplate(post, container);
+    templates.renderProfilePostTemplate(post, container);
 
     commentsContainer.innerHTML = "";
-    renderCommentsTemplate(post, commentsContainer);
+    templates.renderCommentsTemplate(post, commentsContainer);
   } catch (error) {
     console.log(error);
     container.innerHTML = "<div><p>There was an error loading the content<p></div>" + error;

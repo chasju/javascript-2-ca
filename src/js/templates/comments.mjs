@@ -1,5 +1,3 @@
-import { deletePost } from "../handlers/deletePost.mjs";
-
 /**
  * Function will insert values from postData and is a template for how a comment should look like.
  *

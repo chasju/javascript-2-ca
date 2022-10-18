@@ -1,12 +1,5 @@
-import { createComment } from "../api/posts/create.mjs";
-import { getSinglePost } from "./getPost.mjs";
-
-/**
- * Function with create comment listener.
- *
- * @returns Listens for a button and comments a post.
- *
- */
+import * as posts from "../api/posts/index.mjs";
+import * as handler from "./index.mjs";
 
 export async function setCreateCommentListener() {
   const form = document.querySelector("#commentPost");
@@ -23,13 +16,13 @@ export async function setCreateCommentListener() {
         body: input.value,
       };
       comment.id = id;
-      await createComment(comment);
+      await posts.createComment(comment);
       input.value = "";
 
       // Updates page and displays created comment
 
       if (location.pathname === "/pages/post/") {
-        await getSinglePost(id);
+        await handler.getSinglePost(id);
       }
     });
   }

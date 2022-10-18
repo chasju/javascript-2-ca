@@ -18,7 +18,7 @@ const action = "/posts";
  */
 
 export async function getPosts() {
-  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&_comments=true&sort=updated&sortOrder=desc&limit=300`;
+  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&_comments=true&sort=updated&sortOrder=desc&limit=2000`;
 
   const response = await authFetch(getPostsURL);
 
@@ -52,29 +52,4 @@ export async function getPost(id) {
 
   const post = await response.json();
   return post;
-}
-
-/**
- * Function will GET profile of logged in user.
- *
- *
- * @returns returns profile API results.
- * @example
- * ```js
- * async function getOnePost() {
- *  const profile = await getProfile();
- *  console.log(profile)
- * }
- * ```
- */
-
-export async function getProfile() {
-  const name = load("isLoggedIn");
-
-  const getProfileURL = `${API_SOCIAL_URL}/profiles/${name}`;
-
-  const response = await authFetch(getProfileURL);
-
-  const profile = await response.json();
-  return profile;
 }

@@ -79,3 +79,20 @@ export async function unFollow(postData) {
 
   return post;
 }
+
+// export async function reactToPost(postData) {
+//   if (!postData.id) {
+//     throw new Error("Update requires post ID");
+//   }
+//   const reactURL = `${API_SOCIAL_URL}${action}/${postData.id}/🎈`;
+
+//   const response = await authFetch(reactURL, {
+//     method: "PUT",
+//     body: JSON.stringify(postData),
+//   });
+
+//   const post = await response.json();
+//   console.log(reactURL);
+
+//   return post;
+// }
