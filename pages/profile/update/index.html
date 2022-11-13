@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <script src="https://kit.fontawesome.com/3f52b12258.js" crossorigin="anonymous"></script>
 
-    <title>JavaScript 2 CA | Edit Post</title>
+    <title>JavaScript 2 CA | Edit Profile</title>
     <link rel="stylesheet" href="/dist/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script defer type="module" src="/src/js/index.mjs"></script>
@@ -32,7 +32,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/pages/profile/">Profile</a></li>
                   <li><a class="dropdown-item fw-bold text-decoration-underline" href="/pages/login/">Log In</a></li>
-                  <li><button class="dropdown-item">Log Out</button></li>
+                  <li><button class="dropdown-item sign-out-button">Log Out</button></li>
                 </ul>
               </li>
             </ul>
@@ -46,23 +46,15 @@
       </nav>
     </header>
     <div class="container row m-auto h-75 d-flex">
-      <main class="col-10 col-sm-7 col-md-5 m-auto text-center d-flex align-items-center">
-        <form id="editPost" class="flex-grow-1">
+      <main class="col-10 col-sm-7 col-md-5 m-auto text-center d-flex align-items-center mt-5">
+        <form id="editProfile" class="flex-grow-1">
           <h1 class="h3 mb-5 fw-normal text-primary text-uppercase fw-bold m-auto">Edit</h1>
-          <div class="bg-primary p-4 pt-4 rounded-4" style="--bs-bg-opacity: 0.2">
-            <div class="form-group">
-              <textarea required name="body" class="form-control social-media-post bg-secondary text-primary" style="--bs-bg-opacity: 0.4" id="message" rows="3" placeholder="Hey, what's up?"></textarea>
-            </div>
-            <!-- Took these out because of bad request: "body/media must match format"-->
-            <!-- <div class="form-group mt-3">
-              <label for="" class="text-primary">Tags</label>
-              <input type="text" name="tags" class="form-control" />
-            </div>
-
-            <div class="form-group mt-3">
-              <label for="" class="text-primary">Image</label>
-              <input type="url" name="media" class="form-control" />
-            </div> -->
+          <div class="col mb-4 mt-5 px-0 profile-picture placeholder-glow ratio ratio-1x1 placeholder-glow">
+            <img src="/images/caique-nascimento-8832p6MX7vs-unsplash.jpg" alt="profile picture" class="placeholder img-fluid border border-secondary border-5 rounded-circle card-profile-pic-profile" style="--bs-border-opacity: 0.4; width: 100%; height: 100%; object-fit: cover" />
+          </div>
+          <div class="form-group">
+            <label class="text-primary mb-2">Insert image url</label>
+            <input type="url" name="avatar" class="form-control" />
           </div>
           <button class="ps-5 pe-5 mt-5 btn btn-lg btn-primary text-uppercase" type="submit">Update</button>
         </form>

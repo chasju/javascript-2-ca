@@ -13,7 +13,7 @@ export function deletePost() {
 
   deleteButton.forEach((button) => {
     button.addEventListener("click", async (e) => {
-      removePost(e.target.id);
+      await removePost(e.target.id);
       if (location.pathname === "/pages/profile/") {
         await getProfileFeedPosts();
       } else {

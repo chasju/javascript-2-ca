@@ -1,6 +1,5 @@
-import { createPost } from "../api/posts/create.mjs";
-import { getHomeFeedPosts } from "../handlers/getPosts.mjs";
-import { getProfileFeedPosts } from "../handlers/getPosts.mjs";
+import * as posts from "../api/posts/index.mjs";
+import * as handler from "../handlers/index.mjs";
 
 /**
  * Function with create post listener.
@@ -20,13 +19,13 @@ export async function setCreatePostListener() {
       title: "No title",
       body: input.value,
     };
-    createPost(bodyText);
+    await posts.createPost(bodyText);
     input.value = "";
 
     if (location.pathname === "/pages/profile/") {
-      await getProfileFeedPosts();
+      await handler.getProfileFeedPosts();
     } else {
-      await getHomeFeedPosts();
+      await handler.getHomeFeedPosts();
     }
   });
 }

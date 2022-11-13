@@ -26,6 +26,7 @@ const method = "POST";
 
 export async function login(profile) {
   const loginURL = `${API_SOCIAL_URL}${action}`;
+  console.log(loginURL);
 
   const response = await fetch(loginURL, {
     headers: {
@@ -36,11 +37,13 @@ export async function login(profile) {
   });
 
   // Destructuring API result
-  const { accessToken, name } = await response.json();
+  const { accessToken, name, avatar } = await response.json();
 
   storage.save("accessToken", accessToken);
   storage.save("isLoggedIn", name);
   storage.save("status", "loggedIn");
+  storage.save("avatar", avatar);
 
+  console.log(name);
   window.location = "/pages/profile/";
 }

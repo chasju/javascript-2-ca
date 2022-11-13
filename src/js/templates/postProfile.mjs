@@ -1,15 +1,14 @@
 import { deletePost } from "../handlers/deletePost.mjs";
-import * as handler from "../handlers/index.mjs";
 
 /**
- * Function will insert values from postData and is a template for how a post should look like.
+ * Function will insert values from postData and is a template for how a profile post should look like.
  *
  * @param {object} postData
  *
- * @returns The function returns the post template and is being used in the renderPostTemplate function.
+ * @returns The function returns the post template and is being used in the renderProfilePostTemplate function.
  */
 
-export function postTemplate(postData) {
+export function postProfileTemplate(postData) {
   const post = document.createElement("div");
   post.classList.add("post");
 
@@ -83,8 +82,6 @@ export function postTemplate(postData) {
                   <div class="d-flex feed-profile-pic ratio ratio-1x1" style="width:60px;">
                     <div class="mr-2 text-center">
                       <a href="/pages/profile/?name=${author.name}"><img class="rounded-circle" src="${avatar}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;"/></a>
-                      <div class="h7 mt-2 text-primary follow" role="button" ><i id="${author.name}" class="fa-solid fa-user-plus"></i></div>
-                      <div  class="h7 mt-2 text-primary unFollow" role="button" ><i id="${author.name}" class="fa-solid fa-user-minus"></i></div>
                     </div>
                   </div>
                 </div>
@@ -99,8 +96,9 @@ export function postTemplate(postData) {
                 <div class="d-flex gap-3">
                   <a href="/pages/edit/?id=${id}" class="h7 text-primary edit-post">Edit</a>
                   <a href="/pages/post/?id=${id}" class="h7 text-primary edit-post"><i class="fa-solid fa-comments"></i> (${_count.comments})</a>
-                  <div class="h7 text-primary delete-post" role="button"><i id="${id}"  class="fa-solid fa-trash"></i></div>
+                  <div  class="h7 text-primary delete-post" role="button"><i id="${id}" class="fa-solid fa-trash"></i></div>
                   <div class="h7 text-primary react" role="button">&#127880 (${_count.reactions})</div>
+
                 </div>
               </div>
             </div>`;
@@ -118,13 +116,9 @@ export function postTemplate(postData) {
  * @returns renders the post template
  */
 
-export function renderPostTemplate(postData, parent) {
-  parent.append(postTemplate(postData));
+export function renderProfilePostTemplate(postData, parent) {
+  parent.append(postProfileTemplate(postData));
 
   // Set delete function after API result is loaded
   deletePost(postData);
-
-  // Set follow unfollow listeners after template is rendered.
-  handler.setFollowListener();
-  handler.setUnFollowListener();
 }
