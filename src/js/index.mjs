@@ -1,6 +1,7 @@
 import { authFetch } from "./api/authFetch.mjs";
 import { API_SOCIAL_URL } from "./api/constants.mjs";
 import * as handler from "./handlers/index.mjs";
+import { signOut } from "./api/auth/logout.mjs";
 
 const path = location.pathname;
 if (path === "/pages/login/") {
@@ -14,18 +15,23 @@ if (path === "/pages/login/") {
   handler.searchHomeFeedPosts();
   handler.filterFeedAscending();
   handler.filterFeedDescending();
+  signOut();
 } else if (path === "/pages/profile/") {
   handler.getProfileFeedPosts();
   handler.setProfilePicture();
   handler.setCreatePostListener();
   handler.searchProfileFeedPosts();
+  signOut();
 } else if (path === "/pages/post/") {
   handler.getSinglePost();
   handler.setCreateCommentListener();
+  signOut();
 } else if (path === "/pages/edit/") {
   handler.setUpdatePostListener();
+  signOut();
 } else if (path === "/pages/profile/update/") {
   handler.setUpdateProfileListener();
+  signOut();
 }
 
 const accessToken = localStorage.getItem("accessToken");
