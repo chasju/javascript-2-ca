@@ -18,8 +18,7 @@ const action = "/posts";
  */
 
 export async function getPosts() {
-  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&_comments=true&sort=updated&sortOrder=desc&limit=2000`;
-
+  const getPostsURL = `${API_SOCIAL_URL}${action}?_author=true&sort=updated&sortOrder=desc&limit=1000`;
   const response = await authFetch(getPostsURL);
 
   const posts = await response.json();
